@@ -1,0 +1,118 @@
+2018-02-11 07:59:34 - _internal.py:88(_internal:_log) - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2018-02-11 07:59:34 - _internal.py:88(_internal:_log) - INFO -  * Restarting with stat
+2018-02-11 07:59:35 - _internal.py:88(_internal:_log) - WARNING -  * Debugger is active!
+2018-02-11 07:59:35 - _internal.py:88(_internal:_log) - INFO -  * Debugger PIN: 239-139-087
+2018-02-11 08:01:23 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 08:01:23] "POST /playbook HTTP/1.1" 200 -
+2018-02-11 08:04:15 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 08:04:15] "GET /taskstatus/playbook/66294634-1f3e-4738-8936-966d2a340c8f HTTP/1.1" 200 -
+2018-02-11 08:08:40 - _internal.py:88(_internal:_log) - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2018-02-11 08:08:40 - _internal.py:88(_internal:_log) - INFO -  * Restarting with stat
+2018-02-11 08:08:42 - _internal.py:88(_internal:_log) - WARNING -  * Debugger is active!
+2018-02-11 08:08:42 - _internal.py:88(_internal:_log) - INFO -  * Debugger PIN: 239-139-087
+2018-02-11 08:09:35 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 08:09:35] "POST /playbook HTTP/1.1" 200 -
+2018-02-11 08:09:46 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 08:09:46] "GET /taskstatus/playbook/cc5827b3-c726-4406-a409-a457108cac40 HTTP/1.1" 200 -
+2018-02-11 08:12:11 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 08:12:11] "POST /playbook HTTP/1.1" 200 -
+2018-02-11 08:12:25 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 08:12:25] "GET /taskstatus/playbook/6c46c6b5-4f1a-4bf1-97d5-2965f4b68747 HTTP/1.1" 200 -
+2018-02-11 08:15:10 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 08:15:10] "POST /ansiblerun HTTP/1.1" 200 -
+2018-02-11 08:15:13 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 08:15:13] "GET /taskstatus/playbook/6c46c6b5-4f1a-4bf1-97d5-2965f4b68747 HTTP/1.1" 200 -
+2018-02-11 08:15:27 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 08:15:27] "GET /taskstatus/ad_hoc/81d1aa3d-5583-4466-8f34-676e7d919723 HTTP/1.1" 200 -
+2018-02-11 08:26:15 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 08:26:15] "POST /ansiblerun HTTP/1.1" 200 -
+2018-02-11 08:26:32 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 08:26:32] "GET /taskstatus/ad_hoc/683b5d5a-3130-4d4d-a283-4ae27e147539 HTTP/1.1" 200 -
+2018-02-11 08:30:19 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 08:30:19] "POST /ansiblerun HTTP/1.1" 200 -
+2018-02-11 08:30:40 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 08:30:40] "POST /add HTTP/1.1" 200 -
+2018-02-11 08:31:16 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 08:31:16] "POST /add HTTP/1.1" 200 -
+2018-02-11 08:31:36 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 08:31:36] "POST /add HTTP/1.1" 200 -
+2018-02-11 08:32:11 - _internal.py:88(_internal:_log) - INFO -  * Detected change in '/root/PycharmProjects/ansible_2.4_asyn_api/app/tasks/CeleryAnsibleCall.py', reloading
+2018-02-11 08:32:11 - _internal.py:88(_internal:_log) - INFO -  * Restarting with stat
+2018-02-11 08:32:13 - _internal.py:88(_internal:_log) - WARNING -  * Debugger is active!
+2018-02-11 08:32:13 - _internal.py:88(_internal:_log) - INFO -  * Debugger PIN: 239-139-087
+2018-02-11 08:32:23 - _internal.py:88(_internal:_log) - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2018-02-11 08:32:23 - _internal.py:88(_internal:_log) - INFO -  * Restarting with stat
+2018-02-11 08:32:24 - _internal.py:88(_internal:_log) - WARNING -  * Debugger is active!
+2018-02-11 08:32:24 - _internal.py:88(_internal:_log) - INFO -  * Debugger PIN: 239-139-087
+2018-02-11 08:32:37 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 08:32:37] "POST /add HTTP/1.1" 200 -
+2018-02-11 08:35:36 - _internal.py:88(_internal:_log) - INFO -  * Detected change in '/root/PycharmProjects/ansible_2.4_asyn_api/app/tasks/CeleryAnsibleCall.py', reloading
+2018-02-11 08:35:36 - _internal.py:88(_internal:_log) - INFO -  * Restarting with stat
+2018-02-11 08:35:37 - _internal.py:88(_internal:_log) - WARNING -  * Debugger is active!
+2018-02-11 08:35:37 - _internal.py:88(_internal:_log) - INFO -  * Debugger PIN: 239-139-087
+2018-02-11 08:35:46 - _internal.py:88(_internal:_log) - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2018-02-11 08:35:46 - _internal.py:88(_internal:_log) - INFO -  * Restarting with stat
+2018-02-11 08:35:47 - _internal.py:88(_internal:_log) - WARNING -  * Debugger is active!
+2018-02-11 08:35:47 - _internal.py:88(_internal:_log) - INFO -  * Debugger PIN: 239-139-087
+2018-02-11 08:35:58 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 08:35:58] "POST /add HTTP/1.1" 200 -
+2018-02-11 08:36:38 - _internal.py:88(_internal:_log) - INFO -  * Detected change in '/root/PycharmProjects/ansible_2.4_asyn_api/app/tasks/CeleryAnsibleCall.py', reloading
+2018-02-11 08:36:38 - _internal.py:88(_internal:_log) - INFO -  * Restarting with stat
+2018-02-11 08:37:17 - _internal.py:88(_internal:_log) - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2018-02-11 08:37:17 - _internal.py:88(_internal:_log) - INFO -  * Restarting with stat
+2018-02-11 08:37:19 - _internal.py:88(_internal:_log) - WARNING -  * Debugger is active!
+2018-02-11 08:37:19 - _internal.py:88(_internal:_log) - INFO -  * Debugger PIN: 239-139-087
+2018-02-11 08:37:32 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 08:37:32] "POST /add HTTP/1.1" 200 -
+2018-02-11 08:38:16 - _internal.py:88(_internal:_log) - INFO -  * Detected change in '/root/PycharmProjects/ansible_2.4_asyn_api/app/tasks/CeleryAnsibleCall.py', reloading
+2018-02-11 08:38:16 - _internal.py:88(_internal:_log) - INFO -  * Restarting with stat
+2018-02-11 08:38:18 - _internal.py:88(_internal:_log) - WARNING -  * Debugger is active!
+2018-02-11 08:38:18 - _internal.py:88(_internal:_log) - INFO -  * Debugger PIN: 239-139-087
+2018-02-11 08:38:29 - _internal.py:88(_internal:_log) - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2018-02-11 08:38:29 - _internal.py:88(_internal:_log) - INFO -  * Restarting with stat
+2018-02-11 08:38:31 - _internal.py:88(_internal:_log) - WARNING -  * Debugger is active!
+2018-02-11 08:38:31 - _internal.py:88(_internal:_log) - INFO -  * Debugger PIN: 239-139-087
+2018-02-11 08:38:44 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 08:38:44] "POST /ansiblerun HTTP/1.1" 200 -
+2018-02-11 08:42:27 - _internal.py:88(_internal:_log) - INFO -  * Detected change in '/root/PycharmProjects/ansible_2.4_asyn_api/models/ansible_api.py', reloading
+2018-02-11 08:42:27 - _internal.py:88(_internal:_log) - INFO -  * Restarting with stat
+2018-02-11 08:42:29 - _internal.py:88(_internal:_log) - WARNING -  * Debugger is active!
+2018-02-11 08:42:29 - _internal.py:88(_internal:_log) - INFO -  * Debugger PIN: 239-139-087
+2018-02-11 08:42:42 - _internal.py:88(_internal:_log) - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2018-02-11 08:42:42 - _internal.py:88(_internal:_log) - INFO -  * Restarting with stat
+2018-02-11 08:42:44 - _internal.py:88(_internal:_log) - WARNING -  * Debugger is active!
+2018-02-11 08:42:44 - _internal.py:88(_internal:_log) - INFO -  * Debugger PIN: 239-139-087
+2018-02-11 08:43:02 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 08:43:02] "POST /ansiblerun HTTP/1.1" 200 -
+2018-02-11 08:47:00 - _internal.py:88(_internal:_log) - INFO -  * Detected change in '/root/PycharmProjects/ansible_2.4_asyn_api/models/ansible_api.py', reloading
+2018-02-11 08:47:01 - _internal.py:88(_internal:_log) - INFO -  * Restarting with stat
+2018-02-11 08:47:05 - _internal.py:88(_internal:_log) - WARNING -  * Debugger is active!
+2018-02-11 08:47:05 - _internal.py:88(_internal:_log) - INFO -  * Debugger PIN: 239-139-087
+2018-02-11 09:53:14 - _internal.py:88(_internal:_log) - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2018-02-11 09:53:14 - _internal.py:88(_internal:_log) - INFO -  * Restarting with stat
+2018-02-11 09:53:16 - _internal.py:88(_internal:_log) - WARNING -  * Debugger is active!
+2018-02-11 09:53:16 - _internal.py:88(_internal:_log) - INFO -  * Debugger PIN: 239-139-087
+2018-02-11 09:53:19 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 09:53:19] "POST /ansiblerun HTTP/1.1" 200 -
+2018-02-11 10:04:01 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 10:04:01] "POST /ansiblerun HTTP/1.1" 200 -
+2018-02-11 10:04:52 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 10:04:52] "POST /ansiblerun HTTP/1.1" 200 -
+2018-02-11 10:06:17 - _internal.py:88(_internal:_log) - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2018-02-11 10:06:17 - _internal.py:88(_internal:_log) - INFO -  * Restarting with stat
+2018-02-11 10:06:19 - _internal.py:88(_internal:_log) - WARNING -  * Debugger is active!
+2018-02-11 10:06:19 - _internal.py:88(_internal:_log) - INFO -  * Debugger PIN: 239-139-087
+2018-02-11 10:06:21 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 10:06:21] "POST /ansiblerun HTTP/1.1" 200 -
+2018-02-11 10:07:02 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 10:07:02] "GET /taskstatus/ad_hoc/28e616f7-f8fc-4c08-9a49-d95f2afd9a03 HTTP/1.1" 200 -
+2018-02-11 10:08:14 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 10:08:14] "POST /playbook HTTP/1.1" 200 -
+2018-02-11 10:09:27 - _internal.py:88(_internal:_log) - INFO -  * Detected change in '/root/PycharmProjects/ansible_2.4_asyn_api/models/ansible_api.py', reloading
+2018-02-11 10:09:27 - _internal.py:88(_internal:_log) - INFO -  * Restarting with stat
+2018-02-11 10:09:40 - _internal.py:88(_internal:_log) - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2018-02-11 10:09:40 - _internal.py:88(_internal:_log) - INFO -  * Restarting with stat
+2018-02-11 10:09:42 - _internal.py:88(_internal:_log) - WARNING -  * Debugger is active!
+2018-02-11 10:09:42 - _internal.py:88(_internal:_log) - INFO -  * Debugger PIN: 239-139-087
+2018-02-11 10:09:42 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 10:09:42] "POST /playbook HTTP/1.1" 200 -
+2018-02-11 10:10:08 - _internal.py:88(_internal:_log) - INFO -  * Detected change in '/root/PycharmProjects/ansible_2.4_asyn_api/models/ansible_api.py', reloading
+2018-02-11 10:10:09 - _internal.py:88(_internal:_log) - INFO -  * Restarting with stat
+2018-02-11 10:10:11 - _internal.py:88(_internal:_log) - WARNING -  * Debugger is active!
+2018-02-11 10:10:11 - _internal.py:88(_internal:_log) - INFO -  * Debugger PIN: 239-139-087
+2018-02-11 10:10:16 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 10:10:16] "POST /playbook HTTP/1.1" 200 -
+2018-02-11 10:10:56 - _internal.py:88(_internal:_log) - INFO -  * Detected change in '/root/PycharmProjects/ansible_2.4_asyn_api/models/ansible_api.py', reloading
+2018-02-11 10:10:56 - _internal.py:88(_internal:_log) - INFO -  * Restarting with stat
+2018-02-11 10:11:00 - _internal.py:88(_internal:_log) - WARNING -  * Debugger is active!
+2018-02-11 10:11:00 - _internal.py:88(_internal:_log) - INFO -  * Debugger PIN: 239-139-087
+2018-02-11 10:11:18 - _internal.py:88(_internal:_log) - INFO -  * Detected change in '/root/PycharmProjects/ansible_2.4_asyn_api/models/ansible_api.py', reloading
+2018-02-11 10:11:18 - _internal.py:88(_internal:_log) - INFO -  * Restarting with stat
+2018-02-11 10:11:21 - _internal.py:88(_internal:_log) - WARNING -  * Debugger is active!
+2018-02-11 10:11:21 - _internal.py:88(_internal:_log) - INFO -  * Debugger PIN: 239-139-087
+2018-02-11 10:16:12 - _internal.py:88(_internal:_log) - INFO -  * Detected change in '/root/PycharmProjects/ansible_2.4_asyn_api/models/ansible_api.py', reloading
+2018-02-11 10:16:13 - _internal.py:88(_internal:_log) - INFO -  * Restarting with stat
+2018-02-11 10:16:16 - _internal.py:88(_internal:_log) - WARNING -  * Debugger is active!
+2018-02-11 10:16:16 - _internal.py:88(_internal:_log) - INFO -  * Debugger PIN: 239-139-087
+2018-02-11 10:18:11 - _internal.py:88(_internal:_log) - INFO -  * Detected change in '/root/PycharmProjects/ansible_2.4_asyn_api/models/ansible_api.py', reloading
+2018-02-11 10:18:12 - _internal.py:88(_internal:_log) - INFO -  * Restarting with stat
+2018-02-11 10:18:15 - _internal.py:88(_internal:_log) - WARNING -  * Debugger is active!
+2018-02-11 10:18:15 - _internal.py:88(_internal:_log) - INFO -  * Debugger PIN: 239-139-087
+2018-02-11 10:21:25 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 10:21:25] "POST /playbook HTTP/1.1" 200 -
+2018-02-11 10:21:37 - _internal.py:88(_internal:_log) - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2018-02-11 10:21:37 - _internal.py:88(_internal:_log) - INFO -  * Restarting with stat
+2018-02-11 10:21:39 - _internal.py:88(_internal:_log) - WARNING -  * Debugger is active!
+2018-02-11 10:21:39 - _internal.py:88(_internal:_log) - INFO -  * Debugger PIN: 239-139-087
+2018-02-11 10:21:46 - _internal.py:88(_internal:_log) - INFO - 127.0.0.1 - - [11/Feb/2018 10:21:46] "POST /playbook HTTP/1.1" 200 -
