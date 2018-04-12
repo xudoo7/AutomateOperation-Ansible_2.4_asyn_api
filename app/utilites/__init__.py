@@ -57,7 +57,8 @@ def get_playbook(pb_name=None, pb_type=None):
     try:
         url_path = os.path.join(BaseConfig.PLAYBOOK_SERVER, pb_type)
         url_file = os.path.join(url_path, pb_name)
-        work_path = os.path.join(BaseConfig.PLAYBOOK_DIR, pb_name)
+        work_type = os.path.join(BaseConfig.PLAYBOOK_DIR, pb_type)
+        work_path = os.path.join(work_type, pb_name)
         urlretrieve(url_file, work_path)
     except:
         print("{0} downloads playbook error!".format(pb_name))

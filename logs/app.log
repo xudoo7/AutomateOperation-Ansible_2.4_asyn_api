@@ -1,0 +1,13 @@
+[2018-04_09 10:12:46] ansible_api.py[line:193] INFO ad_hoc args
+[2018-04_09 10:13:40] ansible_api.py[line:193] INFO ad_hoc args
+[2018-04_09 10:13:40] transport.py[line:1687] INFO Connected (version 2.0, client OpenSSH_6.6.1)
+[2018-04_09 10:13:50] transport.py[line:1687] INFO Authentication (password) successful!
+[2018-04_09 10:13:51] sftp.py[line:131] INFO [chan 2] Opened sftp connection (server version 3)
+[2018-04_09 10:13:51] sftp.py[line:131] INFO [chan 2] sftp session closed.
+[2018-04_09 10:14:58] ansible_api.py[line:193] INFO ad_hoc args {'host_list': 'test1', 'module_name': 'shell', 'module_args': 'uptime'}
+[2018-04_09 10:15:00] transport.py[line:1687] INFO Connected (version 2.0, client OpenSSH_6.6.1)
+[2018-04_09 10:15:10] transport.py[line:1687] INFO Authentication (password) successful!
+[2018-04_09 10:15:10] sftp.py[line:131] INFO [chan 2] Opened sftp connection (server version 3)
+[2018-04_09 10:15:10] sftp.py[line:131] INFO [chan 2] sftp session closed.
+2018-04-09 10:51:12 - ansible_api.py:182(ansible_api:run_model) - INFO - ad_hoc args {'host_list': 'test1', 'module_name': 'shell', 'module_args': 'uptime'}
+2018-04-09 15:28:48 - ansible_api.py:182(ansible_api:run_model) - INFO - ad_hoc args {'host_list': 'test1', 'module_name': 'shell', 'module_args': 'uptime'}

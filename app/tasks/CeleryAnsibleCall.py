@@ -2,11 +2,13 @@
 from __future__ import print_function, unicode_literals
 from __future__ import absolute_import
 from app import celery
-from models.inventory import BaseInventory
-#from models.runner import PlayBookRunner, AdHocRunner, CommandRunner
 from models.ansible_api import ANSRunner
 from app.utilites import pb_prepare
-import json
+from config import BaseConfig
+import logconfig, logging
+
+logconfig.init_logging(BaseConfig.APP_LOG_DIR)
+logger = logging.getLogger('myapp')
 
 @celery.task
 def add_together(a=1, b=2):
@@ -16,41 +18,30 @@ def add_together(a=1, b=2):
 
 @celery.task(bind=True)
 def callansibleRun(self,resource):
-    res = resource.pop('resource')
-    print(res)
-    print(resource)
-    #ansibleRun = AdHocRunner(res)
-    #res = {"dynamic_host": { "hosts": [{"hostsname": "127.0.0.1", "ip": "127.0.0.1", "username": "root", "port": "22", "password": "root!2013"}], "vars": {"var1": "ansible", "var2": "saltstack"}}}
-    ansibleRun = ANSRunner(res)
+    import traceback
+    try:
+        inventory = resource.pop('resource')
+    except KeyError:
+        print(traceback.print_exc())
+        logger.warning("resource missing iventory attributes!!!")
+    ansibleRun = ANSRunner(inventory)
     ansibleRun.run_model(**resource)
-    #ansibleRun.run_model(host_list=["127.0.0.1"], module_name='shell', module_args="uptime")
-    #runResult = ansibleRun.run('all', 'shell', 'reboot')
-    #print(runResult)
-    #result = runResult.results_summary
-    #print(runResult.results_summary)
-    #print(runResult.results_raw)
-    Result = ansibleRun.get_model_result(self.request.id)
-    print(Result)
-    return Result
-
+    return ansibleRun.get_model_result(self.request.id)
 
 @celery.task(bind=True)
 def callansiblePlookbook(self, resource):
     try:
         inventory = resource.pop('resource')
-        #print(inventory)
         playbook_info = resource.pop('playbook')
-        #print(playbook_info)
         pb_prepare(**playbook_info)
     except KeyError:
         inventory = None
         playbook_info = None
+        logger.warning('resource missing inventory or playbook attributes!!!')
 
     ansiblePlaybook = ANSRunner(inventory)
-    #ansiblePlaybook.run()
     ansiblePlaybook.run_playbook(**playbook_info)
-    runResult = ansiblePlaybook.get_playbook_result(self.request.id)
-    return runResult
+    return ansiblePlaybook.get_playbook_result(self.request.id)
 
 if __name__ == "__main__":
     '''
