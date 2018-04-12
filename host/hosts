@@ -1,0 +1,3 @@
+[test]
+127.0.0.1 ansible_ssh_user=root ansible_ssh_pass=root!2013
+192.168.213.130 ansible_ssh_user=root ansible_ssh_pass=root!2013

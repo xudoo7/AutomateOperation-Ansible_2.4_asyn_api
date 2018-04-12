@@ -12,6 +12,11 @@ from ansible.inventory.manager import InventoryManager
 from ansible.vars.manager import VariableManager
 from ansible.inventory.host import Host,Group
 from config import BaseConfig
+import logconfig, logging
+
+logconfig.init_logging(BaseConfig.APP_LOG_DIR)
+logger = logging.getLogger('myapp')
+
 
 class MyInventory():
     """
@@ -20,9 +25,7 @@ class MyInventory():
     def __init__(self, resource):
         self.resource = resource
         self.loader = DataLoader()
-        self.inventory = InventoryManager(loader=self.loader, sources=['/etc/ansible/hosts'])
-        #self.inventory = InventoryManager(loader=self.loader, sources=self.resource)
-        #self.variable_manager.set_inventory(self.inventory)
+        self.inventory = InventoryManager(loader=self.loader, sources=[BaseConfig.INV_DIR])
         self.variable_manager = VariableManager(loader=self.loader, inventory=self.inventory)
         self.dynamic_inventory()
 
@@ -55,6 +58,16 @@ class MyInventory():
             # my_host.set_variable('ansible_ssh_pass', password)
             # my_host.set_variable('ansible_ssh_private_key_file', ssh_key)
 
+            # 添加become支持
+            become = host.get("become", False)
+            if become:
+                self.variable_manager.set_host_variable(host=my_host, varname="ansible_become", value=True)
+                self.variable_manager.set_host_variable(host=my_host, varname="ansible_become_method", value=become.get('method', 'sudo'))
+                self.variable_manager.set_host_variable(host=my_host, varname="ansible_become_user", value=become.get('user', 'root'))
+                self.variable_manager.set_host_variable(host=my_host, varname="ansible_become_pass", value=become.get('pass', ''))
+            else:
+                self.variable_manager.set_host_variable(host=my_host, varname="ansible_become", value=False)
+
             # set other variables
             #print(host)
             for key in host:
@@ -73,7 +86,6 @@ class MyInventory():
             self.add_dynamic_group(self.resource, 'default_group')
         elif isinstance(self.resource, dict):
             for groupname in self.resource:
-                #print(groupname)
                 self.add_dynamic_group(self.resource[groupname].get("hosts"), groupname, self.resource[groupname].get("vars"))
 
 class ModelResultsCollector(CallbackBase):
@@ -161,16 +173,13 @@ class ANSRunner(object):
         self.inventory = my_inventory.inventory
         self.variable_manager = my_inventory.variable_manager
 
-        # self.variable_manager.set_inventory(self.inventory)
-        # self.variable_manager = VariableManager(loader=self.loader, inventory=self.inventory)
-
     def run_model(self, host_list, module_name, module_args):
         """
         run module from andible ad-hoc.
         module_name: ansible module_name
         module_args: ansible module args
         """
-        print(host_list)
+        logger.info('ad_hoc args %s' % dict(host_list=host_list, module_name=module_name, module_args=module_args))
         play_source = dict(
                 name="Ansible Play",
                 hosts=host_list,
@@ -180,8 +189,7 @@ class ANSRunner(object):
 
         play = Play().load(play_source, variable_manager=self.variable_manager, loader=self.loader)
         tqm = None
-        # if self.redisKey:self.callback = ModelResultsCollectorToSave(self.redisKey,self.logId)
-        # else:self.callback = ModelResultsCollector()
+
         self.callback = ModelResultsCollector()
         import traceback
         try:
@@ -195,10 +203,11 @@ class ANSRunner(object):
             )
             tqm._stdout_callback = self.callback
             tqm.run(play)
+
         except Exception as err:
             print(traceback.print_exc())
-            # DsRedis.OpsAnsibleModel.lpush(self.redisKey,data=err)
-            # if self.logId:AnsibleSaveResult.Model.insert(self.logId, err)
+            logger.error("ad_hoc running error!!!")
+
         finally:
             if tqm is not None:
                 tqm.cleanup()
@@ -207,10 +216,10 @@ class ANSRunner(object):
         """
         run ansible palybook
         """
+        logger.info('playbook args %s' % dict(pb_name=pb_name, pb_type=pb_type))
         try:
-            # if self.redisKey:self.callback = PlayBookResultsCollectorToSave(self.redisKey,self.logId)
             self.callback = PlayBookResultsCollector()
-            playbook_type = os.path.join('/root/PycharmProjects/ansible_2.4_asyn_api/playbooks', pb_type)
+            playbook_type = os.path.join(BaseConfig.PLAYBOOK_DIR, pb_type)
             playbook_path = os.path.join(playbook_type, pb_name)
             print(playbook_path)
             executor = PlaybookExecutor(
@@ -222,9 +231,9 @@ class ANSRunner(object):
                 passwords=self.passwords
             )
             executor._tqm._stdout_callback = self.callback
-            #constants.HOST_KEY_CHECKING = False #关闭第一次使用ansible连接客户端是输入命令
             executor.run()
         except Exception as err:
+            logger.error('playbook running error!!!')
             return False
 
     def get_model_result(self, task_id):
@@ -241,18 +250,17 @@ class ANSRunner(object):
             hostvisiable = host.replace('.','_')
             self.results_raw['unreachable'][hostvisiable]= result._result
 
-        return json.dumps(self.results_raw)
-        #print(self.results_raw)
-        #return self.results_raw
+        return self.results_raw
+
 
     def get_playbook_result(self, task_id):
         #self.results_raw = {'jid:': task_id, 'skipped':{}, 'failed':{}, 'ok':{}, "status":{}, 'unreachable':{}, "changed":{}}
         self.results_raw = {'jid:': task_id, 'skipped':{}, 'failed':{}, 'ok':{}, "status":{}, 'unreachable':{}}
         for host, result in self.callback.task_ok.items():
-            self.results_raw['ok'][host] = result
+            self.results_raw['ok'][host] = result._result
 
         for host, result in self.callback.task_failed.items():
-            self.results_raw['failed'][host] = result
+            self.results_raw['failed'][host] = result._result
 
         for host, result in self.callback.task_status.items():
             self.results_raw['status'][host] = result
@@ -261,10 +269,10 @@ class ANSRunner(object):
         #     self.results_raw['changed'][host] = result
 
         for host, result in self.callback.task_skipped.items():
-            self.results_raw['skipped'][host] = result
+            self.results_raw['skipped'][host] = result._result
 
         for host, result in self.callback.task_unreachable.items():
-            self.results_raw['unreachable'][host] = result
+            self.results_raw['unreachable'][host] = result._result
         #print(self.results_raw)
         return self.results_raw
 
@@ -287,13 +295,13 @@ if __name__ == '__main__':
                     }
                }
     res = {"dynamic_host": { "hosts": [{"hostname": "127.0.0.1", "ip": "127.0.0.1", "username": "root", "port": "22", "password": "root!2013"}], "vars": {"var1": "ansible", "var2": "saltstack"}}}
-    xx = [{"hostname": "127.0.0.1", "ip": "127.0.0.1", "username": "root", "port": "22", "password": "root!2013"}]
-    rbt = ANSRunner(resource)
+    xx = [{"hostname": "test1", "ip": "192.168.213.130", "username": "wp", "port": "22", "password": "123456","become": {"method": "sudo", "user": "root", "pass": "root!2013"}}]
+    rbt = ANSRunner(xx)
     # Ansible Adhoc
-    #rbt.run_model(host_list=["127.0.0.1"], module_name='shell', module_args="uptime")
-    #print(rbt.get_model_result('001'))
+    rbt.run_model(host_list="test1", module_name='shell', module_args="uptime")
+    print(rbt.get_model_result('001'))
     #print(data)
     # Ansible playbook
-    rbt.run_playbook('xx.yaml', 'host')
-    print(rbt.get_playbook_result('002'))
+    #rbt.run_playbook('xx.yaml', 'host')
+    #print(rbt.get_playbook_result('002'))
     # rbt.run_model(host_list=[],module_name='yum',module_args="name=htop state=present")
